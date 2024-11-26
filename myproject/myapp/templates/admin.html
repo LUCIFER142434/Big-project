@@ -81,6 +81,8 @@
 </head>
 
 <body>
+
+    <!-- Header Table Start -->
     <h1 style="text-align: center;">Header Table</h1>
     <table>
         <thead>
@@ -188,10 +190,10 @@
         <button class="styled-button">Create Header End</button>
     </a>
     {% endif %}
+    <!-- Header Table End -->
 
 
-
-
+    <!-- Main One Table Start -->
     <h1 style="text-align: center;">Main One Table</h1>
     <table>
         <thead>
@@ -224,7 +226,7 @@
 
     {% else %}
     <a href="{% url 'creat_main_one_top' %}">
-        <button class="styled-button">Create Header End</button>
+        <button class="styled-button">Create Main One Top</button>
     </a>
     {% endif %}
 
@@ -266,7 +268,7 @@
 
     {% else %}
     <a href="{% url 'creat_main_one_left' %}">
-        <button class="styled-button">Create Header End</button>
+        <button class="styled-button">Create Main One Left</button>
     </a>
     {% endif %}
 
@@ -307,13 +309,99 @@
         </tbody>
     </table>
     <a href="{% url 'creat_main_one_right' %}">
-        <button class="styled-button">Create Header End</button>
+        <button class="styled-button">Create Main One Right</button>
+    </a>
+
+    <!-- Main One Table End -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Main Two Table Start -->
+
+    <h1 style="text-align: center;">Main Two Table</h1>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>name</th>
+                <th>text</th>
+                <th>but_name</th>
+                <th>but_adress</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in main_two_left %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.text}}</td>
+                <td>{{i.but_name}}</td>
+                <td>{{i.but_adress}}</td>
+                <td>
+                    <a href="{% url 'update_main_two_left' i.id %}">
+                        <button class="edit-button">Edit</button>
+                    </a>
+                    <a href="{% url 'delete_main_two_left' i.id %}">
+                        <button class="delete-button">Delete</button>
+                    </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+    <a href="{% url 'creat_main_two_left' %}">
+        <button class="styled-button">Create Main Two Left</button>
     </a>
 
 
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>name</th>
+                <th>text</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in main_two_right %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.text}}</td>
+                <td>
+                    <a href="{% url 'update_main_two_right' i.id %}">
+                        <button class="edit-button">Edit</button>
+                    </a>
+                    <a href="{% url 'delete_main_two_right' i.id %}">
+                        <button class="delete-button">Delete</button>
+                    </a>
+                </td>
+            </tr>
 
-<br><br><br>
-<a href="{% url 'index' %}"><button>BACK</button></a>
+            {% endfor %}
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+    <a href="{% url 'creat_main_two_right' %}">
+        <button class="styled-button">Create Main Two Right</button>
+    </a>
+
+    <br><br><br>
+    <a href="{% url 'index' %}"><button>BACK</button></a>
 </body>
 
 </html>

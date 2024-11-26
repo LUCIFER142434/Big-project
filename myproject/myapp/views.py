@@ -15,6 +15,9 @@ def index(request):
     main_one_left = models.MainOneLeft.objects.all()
     main_one_right = models.MainOneRight.objects.all()
     
+    main_two_left = models.MainTwoLeft.objects.all()
+    main_two_right = models.MainTwoRight.objects.all()
+    
     obj = {
         'header_top':header_top,
         'header_center':header_center,
@@ -23,6 +26,9 @@ def index(request):
         'main_one_top':main_one_top,
         'main_one_left':main_one_left,
         'main_one_right':main_one_right,
+        
+        'main_two_left':main_two_left,
+        'main_two_right':main_two_right
     }
     return render(request,'index.html',obj)
 
@@ -36,6 +42,9 @@ def admin(request):
     main_one_left = models.MainOneLeft.objects.all()
     main_one_right = models.MainOneRight.objects.all()
     
+    main_two_left = models.MainTwoLeft.objects.all()
+    main_two_right = models.MainTwoRight.objects.all()
+    
     obj = {
         'header_top':header_top,
         'header_center':header_center,
@@ -44,6 +53,9 @@ def admin(request):
         'main_one_top':main_one_top,
         'main_one_left':main_one_left,
         'main_one_right':main_one_right,
+        
+        'main_two_left':main_two_left,
+        'main_two_right':main_two_right
     }
     return render(request,'admin.html',obj)
 
@@ -59,6 +71,9 @@ def meetings(request):
     main_one_left = models.MainOneLeft.objects.all()
     main_one_right = models.MainOneRight.objects.all()
     
+    main_two_left = models.MainTwoLeft.objects.all()
+    main_two_right = models.MainTwoRight.objects.all()
+    
     obj = {
         'header_top':header_top,
         'header_center':header_center,
@@ -67,6 +82,9 @@ def meetings(request):
         'main_one_top':main_one_top,
         'main_one_left':main_one_left,
         'main_one_right':main_one_right,
+        
+        'main_two_left':main_two_left,
+        'main_two_right':main_two_right
     }
     return render(request,'meetings.html',obj)
 
@@ -82,6 +100,9 @@ def meeting_details(request):
     main_one_left = models.MainOneLeft.objects.all()
     main_one_right = models.MainOneRight.objects.all()
     
+    main_two_left = models.MainTwoLeft.objects.all()
+    main_two_right = models.MainTwoRight.objects.all()
+    
     obj = {
         'header_top':header_top,
         'header_center':header_center,
@@ -90,6 +111,9 @@ def meeting_details(request):
         'main_one_top':main_one_top,
         'main_one_left':main_one_left,
         'main_one_right':main_one_right,
+        
+        'main_two_left':main_two_left,
+        'main_two_right':main_two_right
     }
     return render(request,'meeting_details.html',obj)
 
@@ -221,21 +245,6 @@ def delete_main_one_top(request,head_id):
     return render(request,'delete.html',{'head':head})
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def creat_main_one_left(request):
     if request.method == 'POST':
         form = forms.MainOneLeftForm(request.POST)
@@ -265,25 +274,6 @@ def delete_main_one_left(request,head_id):
     return render(request,'delete.html',{'head':head})
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def creat_main_one_right(request):
     if request.method == 'POST':
         form = forms.MainOneRightForm(request.POST)
@@ -307,6 +297,73 @@ def update_main_one_right(request,head_id):
 
 def delete_main_one_right(request,head_id):
     head = get_object_or_404(models.MainOneRight,id=head_id)
+    if request.method == 'POST':
+        head.delete()
+        return redirect('admin')
+    return render(request,'delete.html',{'head':head})
+
+
+
+# Main one end
+
+
+# Main two start
+
+
+
+
+def creat_main_two_left(request):
+    if request.method == 'POST':
+        form = forms.MainTwoLeftForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MainTwoLeftForm()
+    return render(request,'form.html',{'form':form})
+
+def update_main_two_left(request,head_id):
+    head = get_object_or_404(models.MainTwoLeft,id=head_id)
+    if request.method == 'POST':
+        form = forms.MainTwoLeftForm(request.POST,instance=head)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MainTwoLeftForm(instance=head)
+    return render(request,'form.html',{'form':form})
+
+def delete_main_two_left(request,head_id):
+    head = get_object_or_404(models.MainTwoLeft,id=head_id)
+    if request.method == 'POST':
+        head.delete()
+        return redirect('admin')
+    return render(request,'delete.html',{'head':head})
+
+
+def creat_main_two_right(request):
+    if request.method == 'POST':
+        form = forms.MainTwoRightForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MainTwoRightForm()
+    return render(request,'form.html',{'form':form})
+
+def update_main_two_right(request,head_id):
+    head = get_object_or_404(models.MainTwoRight,id=head_id)
+    if request.method == 'POST':
+        form = forms.MainTwoRightForm(request.POST,instance=head)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MainTwoRightForm(instance=head)
+    return render(request,'form.html',{'form':form})
+
+def delete_main_two_right(request,head_id):
+    head = get_object_or_404(models.MainTwoRight,id=head_id)
     if request.method == 'POST':
         head.delete()
         return redirect('admin')

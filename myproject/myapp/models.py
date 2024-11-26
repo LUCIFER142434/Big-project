@@ -1,6 +1,6 @@
 from django.db import models
 
-
+# Header start
 class HeaderTop(models.Model):
     text = models.TextField()
     icon = models.CharField(max_length=5)
@@ -24,10 +24,11 @@ class HeaderEnd(models.Model):
     
     def __str__(self):
         return self.text_big
+
+# Header End
     
     
-    
-    
+# Main One start 
 class MainOneTop(models.Model):
     name = models.CharField(max_length=69)
     
@@ -52,3 +53,25 @@ class MainOneRight(models.Model):
     
     def __str__(self):
         return self.name
+    
+# Main One End
+
+
+# Main Two start
+class MainTwoLeft(models.Model):
+    name = models.CharField(max_length=50)
+    text = models.TextField()
+    but_name = models.CharField(max_length=40)
+    but_adress = models.CharField(max_length=250)
+    
+    def __str__(self):
+        return self.name
+    
+class MainTwoRight(models.Model):
+    name = models.CharField(max_length=50)
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.name
+
+# Main Two End

@@ -30,3 +30,19 @@ class MainOneRightForm(forms.ModelForm):
     class Meta:
         model = models.MainOneRight
         fields = ['pay','img','number','name','text']
+
+
+
+
+
+
+# Main Two start
+class MainTwoLeftForm(forms.ModelForm):
+    class Meta:
+        model = models.MainTwoLeft
+        fields = ['name','text','but_name','but_adress']
+
+class MainTwoRightForm(forms.ModelForm):
+    class Meta:
+        model = models.MainTwoRight
+        fields = ['name','text']
