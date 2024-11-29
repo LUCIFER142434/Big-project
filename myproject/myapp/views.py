@@ -10,6 +10,7 @@ def index(request):
     header_top = models.HeaderTop.objects.all()
     header_center = models.HeaderCenter.objects.all()
     header_end = models.HeaderEnd.objects.all()
+    header_slider = models.HeaderSlider.objects.all()
     
     main_one_top = models.MainOneTop.objects.all()
     main_one_left = models.MainOneLeft.objects.all()
@@ -18,17 +19,36 @@ def index(request):
     main_two_left = models.MainTwoLeft.objects.all()
     main_two_right = models.MainTwoRight.objects.all()
     
+    main_thee_top = models.MainTheeTop.objects.all()
+    main_thee_content = models.MainTheeContent.objects.all()
+    
+    main_four_top = models.MainFourTop.objects.all()
+    main_four_left = models.MainFourLeft.objects.all()
+    main_four_right = models.MainFourRight.objects.all()
+    
+    footer = models.Footer.objects.all()
+    
     obj = {
         'header_top':header_top,
         'header_center':header_center,
         'header_end':header_end,
+        'header_slider':header_slider,
         
         'main_one_top':main_one_top,
         'main_one_left':main_one_left,
         'main_one_right':main_one_right,
         
         'main_two_left':main_two_left,
-        'main_two_right':main_two_right
+        'main_two_right':main_two_right,
+        
+        'main_thee_top':main_thee_top,
+        'main_thee_content':main_thee_content,
+        
+        'main_four_top':main_four_top,
+        'main_four_left':main_four_left,
+        'main_four_right':main_four_right,
+        
+        'footer':footer,
     }
     return render(request,'index.html',obj)
 
@@ -37,6 +57,7 @@ def admin(request):
     header_top = models.HeaderTop.objects.all()
     header_center = models.HeaderCenter.objects.all()
     header_end = models.HeaderEnd.objects.all()
+    header_slider = models.HeaderSlider.objects.all()
     
     main_one_top = models.MainOneTop.objects.all()
     main_one_left = models.MainOneLeft.objects.all()
@@ -45,17 +66,36 @@ def admin(request):
     main_two_left = models.MainTwoLeft.objects.all()
     main_two_right = models.MainTwoRight.objects.all()
     
+    main_thee_top = models.MainTheeTop.objects.all()
+    main_thee_content = models.MainTheeContent.objects.all()
+    
+    main_four_top = models.MainFourTop.objects.all()
+    main_four_left = models.MainFourLeft.objects.all()
+    main_four_right = models.MainFourRight.objects.all()
+    
+    footer = models.Footer.objects.all()
+    
     obj = {
         'header_top':header_top,
         'header_center':header_center,
         'header_end':header_end,
+        'header_slider':header_slider,
         
         'main_one_top':main_one_top,
         'main_one_left':main_one_left,
         'main_one_right':main_one_right,
         
         'main_two_left':main_two_left,
-        'main_two_right':main_two_right
+        'main_two_right':main_two_right,
+        
+        'main_thee_top':main_thee_top,
+        'main_thee_content':main_thee_content,
+        
+        'main_four_top':main_four_top,
+        'main_four_left':main_four_left,
+        'main_four_right':main_four_right,
+        
+        'footer':footer,
     }
     return render(request,'admin.html',obj)
 
@@ -66,25 +106,11 @@ def meetings(request):
     header_top = models.HeaderTop.objects.all()
     header_center = models.HeaderCenter.objects.all()
     header_end = models.HeaderEnd.objects.all()
-    
-    main_one_top = models.MainOneTop.objects.all()
-    main_one_left = models.MainOneLeft.objects.all()
-    main_one_right = models.MainOneRight.objects.all()
-    
-    main_two_left = models.MainTwoLeft.objects.all()
-    main_two_right = models.MainTwoRight.objects.all()
-    
+
     obj = {
         'header_top':header_top,
         'header_center':header_center,
         'header_end':header_end,
-        
-        'main_one_top':main_one_top,
-        'main_one_left':main_one_left,
-        'main_one_right':main_one_right,
-        
-        'main_two_left':main_two_left,
-        'main_two_right':main_two_right
     }
     return render(request,'meetings.html',obj)
 
@@ -96,24 +122,10 @@ def meeting_details(request):
     header_center = models.HeaderCenter.objects.all()
     header_end = models.HeaderEnd.objects.all()
     
-    main_one_top = models.MainOneTop.objects.all()
-    main_one_left = models.MainOneLeft.objects.all()
-    main_one_right = models.MainOneRight.objects.all()
-    
-    main_two_left = models.MainTwoLeft.objects.all()
-    main_two_right = models.MainTwoRight.objects.all()
-    
     obj = {
         'header_top':header_top,
         'header_center':header_center,
         'header_end':header_end,
-        
-        'main_one_top':main_one_top,
-        'main_one_left':main_one_left,
-        'main_one_right':main_one_right,
-        
-        'main_two_left':main_two_left,
-        'main_two_right':main_two_right
     }
     return render(request,'meeting_details.html',obj)
 
@@ -210,11 +222,37 @@ def delete_header_end(request,head_id):
 
 
 
+def creat_header_slider(request):
+    if request.method == 'POST':
+        form = forms.HeaderSliderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.HeaderSliderForm()
+    return render(request,'form.html',{'form':form})
+
+def update_header_slider(request,head_id):
+    head = get_object_or_404(models.HeaderSlider,id=head_id)
+    if request.method == 'POST':
+        form = forms.HeaderSliderForm(request.POST,instance=head)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.HeaderSliderForm(instance=head)
+    return render(request,'form.html',{'form':form})
+
+def delete_header_slider(request,head_id):
+    head = get_object_or_404(models.HeaderSlider,id=head_id)
+    if request.method == 'POST':
+        head.delete()
+        return redirect('admin')
+    return render(request,'delete.html',{'head':head})
+
 # Header end
 
 # Main one start
-
-
 
 def creat_main_one_top(request):
     if request.method == 'POST':
@@ -309,9 +347,6 @@ def delete_main_one_right(request,head_id):
 
 # Main two start
 
-
-
-
 def creat_main_two_left(request):
     if request.method == 'POST':
         form = forms.MainTwoLeftForm(request.POST)
@@ -368,3 +403,189 @@ def delete_main_two_right(request,head_id):
         head.delete()
         return redirect('admin')
     return render(request,'delete.html',{'head':head})
+
+# Main Two End
+
+# Main Thee Start
+
+def creat_main_thee_top(request):
+    if request.method == 'POST':
+        form = forms.MainTheeTopForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MainTheeTopForm()
+    return render(request,'form.html',{'form':form})
+
+def update_main_thee_top(request,head_id):
+    head = get_object_or_404(models.MainTheeTop,id=head_id)
+    if request.method == 'POST':
+        form = forms.MainTheeTopForm(request.POST,instance=head)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MainTheeTopForm(instance=head)
+    return render(request,'form.html',{'form':form})
+
+def delete_main_thee_top(request,head_id):
+    head = get_object_or_404(models.MainTheeTop,id=head_id)
+    if request.method == 'POST':
+        head.delete()
+        return redirect('admin')
+    return render(request,'delete.html',{'head':head})
+
+
+def creat_main_thee_content(request):
+    if request.method == 'POST':
+        form = forms.MainTheeContentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MainTheeContentForm()
+    return render(request,'form.html',{'form':form})
+
+def update_main_thee_content(request,head_id):
+    head = get_object_or_404(models.MainTheeContent,id=head_id)
+    if request.method == 'POST':
+        form = forms.MainTheeContentForm(request.POST,instance=head)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MainTheeContentForm(instance=head)
+    return render(request,'form.html',{'form':form})
+
+def delete_main_thee_content(request,head_id):
+    head = get_object_or_404(models.MainTheeContent,id=head_id)
+    if request.method == 'POST':
+        head.delete()
+        return redirect('admin')
+    return render(request,'delete.html',{'head':head})
+
+
+# Main Thee End
+
+# Main Four Start
+def creat_main_four_top(request):
+    if request.method == 'POST':
+        form = forms.MainFourTopForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MainFourTopForm()
+    return render(request,'form.html',{'form':form})
+
+def update_main_four_top(request,head_id):
+    head = get_object_or_404(models.MainFourTop,id=head_id)
+    if request.method == 'POST':
+        form = forms.MainFourTopForm(request.POST,instance=head)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MainFourTopForm(instance=head)
+    return render(request,'form.html',{'form':form})
+
+def delete_main_four_top(request,head_id):
+    head = get_object_or_404(models.MainFourTop,id=head_id)
+    if request.method == 'POST':
+        head.delete()
+        return redirect('admin')
+    return render(request,'delete.html',{'head':head})
+
+
+def creat_main_four_left(request):
+    if request.method == 'POST':
+        form = forms.MainFourLeftForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MainFourLeftForm()
+    return render(request,'form.html',{'form':form})
+
+def update_main_four_left(request,head_id):
+    head = get_object_or_404(models.MainFourLeft,id=head_id)
+    if request.method == 'POST':
+        form = forms.MainFourLeftForm(request.POST,instance=head)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MainFourLeftForm(instance=head)
+    return render(request,'form.html',{'form':form})
+
+def delete_main_four_left(request,head_id):
+    head = get_object_or_404(models.MainFourLeft,id=head_id)
+    if request.method == 'POST':
+        head.delete()
+        return redirect('admin')
+    return render(request,'delete.html',{'head':head})
+
+
+def creat_main_four_right(request):
+    if request.method == 'POST':
+        form = forms.MainFourRightForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MainFourRightForm()
+    return render(request,'form.html',{'form':form})
+
+def update_main_four_right(request,head_id):
+    head = get_object_or_404(models.MainFourRight,id=head_id)
+    if request.method == 'POST':
+        form = forms.MainFourRightForm(request.POST,instance=head)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MainFourRightForm(instance=head)
+    return render(request,'form.html',{'form':form})
+
+def delete_main_four_right(request,head_id):
+    head = get_object_or_404(models.MainFourRight,id=head_id)
+    if request.method == 'POST':
+        head.delete()
+        return redirect('admin')
+    return render(request,'delete.html',{'head':head})
+
+# Main Four End
+
+
+# Footer Start
+
+def creat_footer(request):
+    if request.method == 'POST':
+        form = forms.FooterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.FooterForm()
+    return render(request,'form.html',{'form':form})
+
+def update_footer(request,head_id):
+    head = get_object_or_404(models.Footer,id=head_id)
+    if request.method == 'POST':
+        form = forms.FooterForm(request.POST,instance=head)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.FooterForm(instance=head)
+    return render(request,'form.html',{'form':form})
+
+def delete_footer(request,head_id):
+    head = get_object_or_404(models.Footer,id=head_id)
+    if request.method == 'POST':
+        head.delete()
+        return redirect('admin')
+    return render(request,'delete.html',{'head':head})
+
+# Footer End

@@ -1,6 +1,7 @@
 from django import forms
 from . import models
 
+# Header Start
 class HeaderTopForm(forms.ModelForm):
     class Meta:
         model = models.HeaderTop
@@ -16,6 +17,13 @@ class HeaderEndForm(forms.ModelForm):
         model = models.HeaderEnd
         fields = ['text_top','text_big','text_end','but_name']
         
+        
+class HeaderSliderForm(forms.ModelForm):
+    class Meta:
+        model = models.HeaderSlider
+        fields = ['img','name','text']
+# Header End
+# Main One Start
 class MainOneTopForm(forms.ModelForm):
     class Meta:
         model = models.MainOneTop
@@ -30,11 +38,7 @@ class MainOneRightForm(forms.ModelForm):
     class Meta:
         model = models.MainOneRight
         fields = ['pay','img','number','name','text']
-
-
-
-
-
+# Main One End
 
 # Main Two start
 class MainTwoLeftForm(forms.ModelForm):
@@ -46,3 +50,47 @@ class MainTwoRightForm(forms.ModelForm):
     class Meta:
         model = models.MainTwoRight
         fields = ['name','text']
+        
+# Main Two End
+
+# Main Thee Start
+
+class MainTheeTopForm(forms.ModelForm):
+    class Meta:
+        model = models.MainTheeTop
+        fields = ['name']
+        
+class MainTheeContentForm(forms.ModelForm):
+    class Meta:
+        model = models.MainTheeContent
+        fields = ['img','name','pay']
+
+
+
+# Main Thee End
+
+# Main Four Start
+class MainFourTopForm(forms.ModelForm):
+    class Meta:
+        model = models.MainFourTop
+        fields = ['name']
+
+class MainFourLeftForm(forms.ModelForm):
+    class Meta:
+        model = models.MainFourLeft
+        fields = ['name','number','nametwo','numbertwo']
+
+class MainFourRightForm(forms.ModelForm):
+    class Meta:
+        model = models.MainFourRight
+        fields = ['img']
+# Main Four End
+
+# Footer Start
+
+class FooterForm(forms.ModelForm):
+    class Meta:
+        model = models.Footer
+        fields = ['name','adress']
+
+# Footer End

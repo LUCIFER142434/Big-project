@@ -24,9 +24,16 @@ class HeaderEnd(models.Model):
     
     def __str__(self):
         return self.text_big
+    
+class HeaderSlider(models.Model):
+    img = models.CharField(max_length=10)
+    name = models.CharField(max_length=15)
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.name
 
 # Header End
-    
     
 # Main One start 
 class MainOneTop(models.Model):
@@ -75,3 +82,59 @@ class MainTwoRight(models.Model):
         return self.name
 
 # Main Two End
+
+# Main Thee Start
+
+class MainTheeTop(models.Model):
+    name = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.name
+    
+    
+class MainTheeContent(models.Model):
+    img = models.CharField(max_length=10)
+    name = models.CharField(max_length=80)
+    pay = models.CharField(max_length=10)
+    
+    def __str__(self):
+        return self.name
+
+# Main Thee End
+
+# Main Four Start
+    
+class MainFourTop(models.Model):
+    name = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.name
+
+class MainFourLeft(models.Model):
+    number = models.CharField(max_length=30)
+    name = models.CharField(max_length=50)
+    numbertwo = models.CharField(max_length=30)
+    nametwo = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.name
+    
+class MainFourRight(models.Model):
+    img = models.CharField(max_length=10)
+    
+    def __str__(self):
+        return self.img
+    
+# Main Four End
+# Footer Start
+
+
+class Footer(models.Model):
+    name = models.CharField(max_length=50)
+    adress = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.name
+
+
+# Footer End

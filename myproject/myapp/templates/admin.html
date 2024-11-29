@@ -190,6 +190,42 @@
         <button class="styled-button">Create Header End</button>
     </a>
     {% endif %}
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Text</th>
+                <th>Img</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in header_slider %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.text}}</td>
+                <td>{{i.img}}</td>
+                <td>
+                    <a href="{% url 'update_header_slider' i.id %}">
+                        <button class="edit-button">Edit</button>
+                    </a>
+                    <a href="{% url 'delete_header_slider' i.id %}">
+                        <button class="delete-button">Delete</button>
+                    </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+    <a href="{% url 'creat_header_slider' %}">
+        <button class="styled-button">Create Header Slider</button>
+    </a>
     <!-- Header Table End -->
 
 
@@ -316,14 +352,6 @@
 
 
 
-
-
-
-
-
-
-
-
     <!-- Main Two Table Start -->
 
     <h1 style="text-align: center;">Main Two Table</h1>
@@ -399,6 +427,243 @@
     <a href="{% url 'creat_main_two_right' %}">
         <button class="styled-button">Create Main Two Right</button>
     </a>
+
+    <!-- Main Two Table End -->
+
+    <!-- Main Thee Table Start -->
+
+    <h1 style="text-align: center;">Main Thee Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in main_thee_top %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>
+                    <a href="{% url 'update_main_thee_top' i.id %}">
+                        <button class="edit-button">Edit</button>
+                    </a>
+                    <a href="{% url 'delete_main_thee_top' i.id %}">
+                        <button class="delete-button">Delete</button>
+                    </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+    {% if main_thee_top %}
+
+    {% else %}
+    <a href="{% url 'creat_main_thee_top' %}">
+        <button class="styled-button">Create Main Thee Top</button>
+    </a>
+    {% endif %}
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>name</th>
+                <th>img</th>
+                <th>pay</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in main_thee_content %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.img}}</td>
+                <td>{{i.pay}}</td>
+
+                <td>
+                    <a href="{% url 'update_main_thee_content' i.id %}">
+                        <button class="edit-button">Edit</button>
+                    </a>
+                    <a href="{% url 'delete_main_thee_content' i.id %}">
+                        <button class="delete-button">Delete</button>
+                    </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+    <a href="{% url 'creat_main_thee_content' %}">
+        <button class="styled-button">Create Main Four Left</button>
+    </a>
+
+
+    <!-- Main Thee Table End -->
+
+    <!-- Main Four Table Start -->
+
+    <h1 style="text-align: center;">Main Four Table</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in main_four_top %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>
+                    <a href="{% url 'update_main_four_top' i.id %}">
+                        <button class="edit-button">Edit</button>
+                    </a>
+                    <a href="{% url 'delete_main_four_top' i.id %}">
+                        <button class="delete-button">Delete</button>
+                    </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+    {% if main_four_top %}
+
+    {% else %}
+    <a href="{% url 'creat_main_four_top' %}">
+        <button class="styled-button">Create Main Four Top</button>
+    </a>
+    {% endif %}
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>name</th>
+                <th>number</th>
+                <th>nametwo</th>
+                <th>numbertwo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in main_four_left %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.number}}</td>
+                <td>{{i.nametwo}}</td>
+                <td>{{i.numbertwo}}</td>
+                <td>
+                    <a href="{% url 'update_main_four_left' i.id %}">
+                        <button class="edit-button">Edit</button>
+                    </a>
+                    <a href="{% url 'delete_main_four_left' i.id %}">
+                        <button class="delete-button">Delete</button>
+                    </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+    <a href="{% url 'creat_main_four_left' %}">
+        <button class="styled-button">Create Main Four Left</button>
+    </a>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>img</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in main_four_right %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.img}}</td>
+                <td>
+                    <a href="{% url 'update_main_four_right' i.id %}">
+                        <button class="edit-button">Edit</button>
+                    </a>
+                    <a href="{% url 'delete_main_four_right' i.id %}">
+                        <button class="delete-button">Delete</button>
+                    </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+    {% if main_four_right %}
+
+    {% else %}
+    <a href="{% url 'creat_main_four_right' %}">
+        <button class="styled-button">Create Main Four Right</button>
+    </a>
+    {% endif %}
+    <!-- Main Four Table End -->
+
+
+    <!-- Footer Table Start -->
+
+    <h1 style="text-align: center;">Footer Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>name</th>
+                <th>adrees</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in footer %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.adress}}</td>
+
+                <td>
+                    <a href="{% url 'update_footer' i.id %}">
+                        <button class="edit-button">Edit</button>
+                    </a>
+                    <a href="{% url 'delete_footer' i.id %}">
+                        <button class="delete-button">Delete</button>
+                    </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+    <a href="{% url 'creat_footer' %}">
+        <button class="styled-button">Create Footer Left</button>
+    </a>
+
+    <!-- Footer Table Start -->
+
+
+
 
     <br><br><br>
     <a href="{% url 'index' %}"><button>BACK</button></a>
