@@ -81,4 +81,79 @@ urlpatterns = [
     path('update_footer/<int:head_id>/',views.update_footer,name='update_footer'),
     # Delete
     path('delete_footer/<int:head_id>/',views.delete_footer,name='delete_footer'),
+    # Footer End
+    
+    
+    # API Start
+    
+    # Header API Start
+    path('api/header-top/', views.HeaderTopAPIView.as_view(), name='header_top_list_create'),
+    path('api/header-top/<int:head_id>/', views.HeaderTopAPIView.as_view(), name='header_top_detail_update_delete'),
+    
+    path('api/header-center/', views.HeaderCenterAPIView.as_view(), name='header_center_list_create'),
+    path('api/header-center/<int:head_id>/', views.HeaderCenterAPIView.as_view(), name='header_center_detail_update_delete'),
+    
+    path('api/header-end/', views.HeaderEndAPIView.as_view(), name='header_end_list_create'),
+    path('api/header-end/<int:head_id>/', views.HeaderEndAPIView.as_view(), name='header_end_detail_update_delete'),
+    
+    path('api/header-slider/', views.HeaderSliderAPIView.as_view(), name='header_slider_list_create'),
+    path('api/header-slider/<int:head_id>/', views.HeaderSliderAPIView.as_view(), name='header_slider_detail_update_delete'),
+    
+    # Header API End
+    
+    # Main One API Start
+    
+    path('api/main-one-top/', views.MainOneTopAPIView.as_view(), name='main_one_top_list_create'),
+    path('api/main-one-top/<int:head_id>/', views.MainOneTopAPIView.as_view(), name='main_one_top_detail_update_delete'),
+    
+    path('api/main-one-left/', views.MainOneLeftAPIView.as_view(), name='main_one_left_list_create'),
+    path('api/main-one-left/<int:head_id>/', views.MainOneLeftAPIView.as_view(), name='main_one_left_detail_update_delete'),
+    
+    path('api/main-one-right/', views.MainOneRightAPIView.as_view(), name='main_one_right_create'),
+    path('api/main-one-right/<int:head_id>/', views.MainOneRightAPIView.as_view(), name='main_one_right_detail_update_delete'),
+    
+    # Main One API End
+    
+    # Main Two API Start
+    
+    path('api/main-two-left/', views.MainTwoLeftAPIView.as_view(), name='main_two_left_list_create'),
+    path('api/main-two-left/<int:head_id>/', views.MainTwoLeftAPIView.as_view(), name='main_two_left_detail_update_delete'),
+    
+    path('api/main-two-right/', views.MainTwoRightAPIView.as_view(), name='main_two_left_right_create'),
+    path('api/main-two-right/<int:head_id>/', views.MainTwoRightAPIView.as_view(), name='main_two_right_detail_update_delete'),
+    
+    # Main Two API End
+    
+    # Main Thee API Start
+    
+    path('api/main-thee-top/', views.MainTheeTopAPIView.as_view(), name='main_thee_top_list_create'),
+    path('api/main-thee-top/<int:head_id>/', views.MainTheeTopAPIView.as_view(), name='main_thee_top_detail_update_delete'),
+    
+    path('api/main-thee-content/', views.MainTheeContentAPIView.as_view(), name='main_thee_content_create'),
+    path('api/main-thee-content/<int:head_id>/', views.MainTheeContentAPIView.as_view(), name='main_thee_content_detail_update_delete'),
+    
+    # Main Thee API End
+    
+    # Main Four API Start
+    
+    path('api/main-four-top/', views.MainFourTopAPIView.as_view(), name='main_four_top_list_create'),
+    path('api/main-four-top/<int:head_id>/', views.MainFourTopAPIView.as_view(), name='main_four_top_detail_update_delete'),
+    
+    path('api/main-four-left/', views.MainFourLeftAPIView.as_view(), name='main_four_left_list_create'),
+    path('api/main-four-left/<int:head_id>/', views.MainFourLeftAPIView.as_view(), name='main_four_left_detail_update_delete'),
+    
+    path('api/main-four-right/', views.MainFourRightAPIView.as_view(), name='main_four_right_create'),
+    path('api/main-four-right/<int:head_id>/', views.MainFourRightAPIView.as_view(), name='main_four_right_detail_update_delete'),
+    
+    # Main Four API End
+    
+    # Footer API Start
+    
+    path('api/footer/', views.FooterAPIView.as_view(), name='footer_list_create'),
+    path('api/footer/<int:head_id>/', views.FooterAPIView.as_view(), name='footer_detail_update_delete'),
+    
+    # Footer API End
+    
+    # API End
+    
 ]
