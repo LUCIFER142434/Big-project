@@ -28,6 +28,7 @@ class MainOneTopForm(forms.ModelForm):
     class Meta:
         model = models.MainOneTop
         fields = ['name']
+        
 
 class MainOneLeftForm(forms.ModelForm):
     class Meta:
