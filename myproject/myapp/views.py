@@ -7,6 +7,83 @@ from rest_framework import status
 from rest_framework.views import APIView
 
 
+def baza_site(request):
+    return render(request,'admin/baza_site.html')
+
+def admin_header_top(request):
+    form = models.HeaderTop.objects.all()
+    return render(request,'admin/header/top.html',{'form':form})
+
+def admin_header_center(request):
+    form = models.HeaderCenter.objects.all()
+    return render(request,'admin/header/center.html',{'form':form})
+
+def admin_header_end(request):
+    form = models.HeaderEnd.objects.all()
+    return render(request,'admin/header/end.html',{'form':form})
+
+def admin_header_slider(request):
+    form = models.HeaderTop.objects.all()
+    return render(request,'admin/header/slider.html',{'form':form})
+
+
+
+def admin_main_one_top(request):
+    form = models.MainOneTop.objects.all()
+    return render(request,'admin/main_one/top.html',{'form':form})
+
+def admin_main_one_left(request):
+    form = models.MainOneLeft.objects.all()
+    return render(request,'admin/main_one/left.html',{'form':form})
+
+def admin_main_one_right(request):
+    form = models.MainOneRight.objects.all()
+    return render(request,'admin/main_one/right.html',{'form':form})
+
+
+
+def admin_main_two_left(request):
+    form = models.MainTwoLeft.objects.all()
+    return render(request,'admin/main_two/left.html',{'form':form})
+
+def admin_main_two_right(request):
+    form = models.MainTwoRight.objects.all()
+    return render(request,'admin/main_two/right.html',{'form':form})
+
+
+
+
+def admin_main_thee_top(request):
+    form = models.MainTheeTop.objects.all()
+    return render(request,'admin/main_thee/top.html',{'form':form})
+
+def admin_main_thee_content(request):
+    form = models.MainTheeContent.objects.all()
+    return render(request,'admin/main_thee/content.html',{'form':form})
+
+
+
+
+def admin_main_four_top(request):
+    form = models.MainFourTop.objects.all()
+    return render(request,'admin/main_four/top.html',{'form':form})
+
+def admin_main_four_left(request):
+    form = models.MainFourLeft.objects.all()
+    return render(request,'admin/main_four/left.html',{'form':form})
+
+def admin_main_four_right(request):
+    form = models.MainFourRight.objects.all()
+    return render(request,'admin/main_four/right.html',{'form':form})
+
+
+def admin_footer(request):
+    form = models.Footer.objects.all()
+    return render(request,'admin/footer/footer.html',{'form':form})
+
+
+
+
 def index(request):
     header_top = models.HeaderTop.objects.all()
     header_center = models.HeaderCenter.objects.all()

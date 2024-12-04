@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
     {% load static %}
+    <link rel="stylesheet" href="{% static 'adminlte/admin.css' %}">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -27,70 +28,6 @@
   <link rel="stylesheet" href="{% static 'adminlte/plugins/summernote/summernote-bs4.min.css' %}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .form-container {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            width: 100%;
-            max-width: 10000px;
-        }
-        .form-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        form p {
-            margin: 10px 0;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
-        button {
-            flex: 1;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .back-button {
-            background-color: #f44336;
-        }
-        .back-button:hover {
-            background-color: #d32f2f;
-        }
-    </style>
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -273,23 +210,23 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{% url 'admin' %}" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+               <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Dashboard
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'admin' %}" class="nav-link active">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Dashboard v1</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
-            </ul>
-          </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -465,17 +402,40 @@
 
     <!-- Main content -->
 
-    <div class="form-container">
-        <h2>Submit Your Details</h2>
-        <form action="" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <div class="button-container">
-                <button type="button" class="back-button" onclick="history.back()">Back</button>
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in main_thee_top %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>
+                    <a href="{% url 'update_main_thee_top' i.id %}">
+                        <button class="edit-button">Edit</button>
+                    </a>
+                    <a href="{% url 'delete_main_thee_top' i.id %}">
+                        <button class="delete-button">Delete</button>
+                    </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+    {% if main_thee_top %}
+
+    {% else %}
+    <a href="{% url 'creat_main_thee_top' %}">
+        <button class="styled-button">Create Main Thee Top</button>
+    </a>
+    {% endif %}
 
     <!-- /.content -->
   </div>

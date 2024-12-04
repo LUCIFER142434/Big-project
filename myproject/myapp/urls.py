@@ -2,9 +2,31 @@ from django.urls import path
 from . import views
 urlpatterns = [
     path('',views.index,name='index'),
-    path('admin/',views.admin,name='admin'),
+    # path('admin/',views.admin,name='admin'),
     path('meeting_details/',views.meeting_details,name='meeting_details'),
     path('meetings/',views.meetings,name='meetings'),
+    path('admin/',views.baza_site,name='admin'),
+    
+    path('admin_header_top/',views.admin_header_top,name='admin_header_top'),
+    path('admin_header_center/',views.admin_header_center,name='admin_header_center'),
+    path('admin_header_end/',views.admin_header_end,name='admin_header_end'),
+    path('admin_header_slider/',views.admin_header_slider,name='admin_header_slider'),
+    
+    path('admin_main_one_top/',views.admin_main_one_top,name='admin_main_one_top'),
+    path('admin_main_one_left/',views.admin_main_one_left,name='admin_main_one_left'),
+    path('admin_main_one_right/',views.admin_main_one_right,name='admin_main_one_right'),
+    
+    path('admin_main_two_left/',views.admin_main_two_left,name='admin_main_two_left'),
+    path('admin_main_two_right/',views.admin_main_two_right,name='admin_main_two_right'),
+    
+    path('admin_main_thee_top/',views.admin_main_thee_top,name='admin_main_thee_top'),
+    path('admin_main_thee_content/',views.admin_main_thee_content,name='admin_main_thee_content'),
+    
+    path('admin_main_four_top/',views.admin_main_four_top,name='admin_main_four_top'),
+    path('admin_main_four_left/',views.admin_main_four_left,name='admin_main_four_left'),
+    path('admin_main_four_right/',views.admin_main_four_right,name='admin_main_four_right'),
+    path('admin_footer/',views.admin_footer,name='admin_footer'),
+
     # Header
     # Creat
     path('creat_header_top/',views.creat_header_top,name='creat_header_top'),
