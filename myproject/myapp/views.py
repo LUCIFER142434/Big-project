@@ -11,75 +11,75 @@ def baza_site(request):
     return render(request,'admin/baza_site.html')
 
 def admin_header_top(request):
-    form = models.HeaderTop.objects.all()
-    return render(request,'admin/header/top.html',{'form':form})
+    header_top = models.HeaderTop.objects.all()
+    return render(request,'admin/header/top.html',{'header_top':header_top})
 
 def admin_header_center(request):
-    form = models.HeaderCenter.objects.all()
-    return render(request,'admin/header/center.html',{'form':form})
+    header_center = models.HeaderCenter.objects.all()
+    return render(request,'admin/header/center.html',{'header_center':header_center})
 
 def admin_header_end(request):
-    form = models.HeaderEnd.objects.all()
-    return render(request,'admin/header/end.html',{'form':form})
+    header_end = models.HeaderEnd.objects.all()
+    return render(request,'admin/header/end.html',{'header_end':header_end})
 
 def admin_header_slider(request):
-    form = models.HeaderTop.objects.all()
-    return render(request,'admin/header/slider.html',{'form':form})
+    header_slider = models.HeaderTop.objects.all()
+    return render(request,'admin/header/slider.html',{'header_slider':header_slider})
 
 
 
 def admin_main_one_top(request):
-    form = models.MainOneTop.objects.all()
-    return render(request,'admin/main_one/top.html',{'form':form})
+    main_one_top = models.MainOneTop.objects.all()
+    return render(request,'admin/main_one/top.html',{'main_one_top':main_one_top})
 
 def admin_main_one_left(request):
-    form = models.MainOneLeft.objects.all()
-    return render(request,'admin/main_one/left.html',{'form':form})
+    main_one_left = models.MainOneLeft.objects.all()
+    return render(request,'admin/main_one/left.html',{'main_one_left':main_one_left})
 
 def admin_main_one_right(request):
-    form = models.MainOneRight.objects.all()
-    return render(request,'admin/main_one/right.html',{'form':form})
+    main_one_right = models.MainOneRight.objects.all()
+    return render(request,'admin/main_one/right.html',{'main_one_right':main_one_right})
 
 
 
 def admin_main_two_left(request):
-    form = models.MainTwoLeft.objects.all()
-    return render(request,'admin/main_two/left.html',{'form':form})
+    main_two_left = models.MainTwoLeft.objects.all()
+    return render(request,'admin/main_two/left.html',{'main_two_left':main_two_left})
 
 def admin_main_two_right(request):
-    form = models.MainTwoRight.objects.all()
-    return render(request,'admin/main_two/right.html',{'form':form})
+    main_two_right = models.MainTwoRight.objects.all()
+    return render(request,'admin/main_two/right.html',{'main_two_right':main_two_right})
 
 
 
 
 def admin_main_thee_top(request):
-    form = models.MainTheeTop.objects.all()
-    return render(request,'admin/main_thee/top.html',{'form':form})
+    main_thee_top = models.MainTheeTop.objects.all()
+    return render(request,'admin/main_thee/top.html',{'main_thee_top':main_thee_top})
 
 def admin_main_thee_content(request):
-    form = models.MainTheeContent.objects.all()
-    return render(request,'admin/main_thee/content.html',{'form':form})
+    main_thee_content = models.MainTheeContent.objects.all()
+    return render(request,'admin/main_thee/content.html',{'main_thee_content':main_thee_content})
 
 
 
 
 def admin_main_four_top(request):
-    form = models.MainFourTop.objects.all()
-    return render(request,'admin/main_four/top.html',{'form':form})
+    main_four_top = models.MainFourTop.objects.all()
+    return render(request,'admin/main_four/top.html',{'main_four_top':main_four_top})
 
 def admin_main_four_left(request):
-    form = models.MainFourLeft.objects.all()
-    return render(request,'admin/main_four/left.html',{'form':form})
+    main_four_left = models.MainFourLeft.objects.all()
+    return render(request,'admin/main_four/left.html',{'main_four_left':main_four_left})
 
 def admin_main_four_right(request):
-    form = models.MainFourRight.objects.all()
-    return render(request,'admin/main_four/right.html',{'form':form})
+    main_four_right = models.MainFourRight.objects.all()
+    return render(request,'admin/main_four/right.html',{'main_four_right':main_four_right})
 
 
 def admin_footer(request):
-    form = models.Footer.objects.all()
-    return render(request,'admin/footer/footer.html',{'form':form})
+    footer = models.Footer.objects.all()
+    return render(request,'admin/footer/footer.html',{'footer':footer})
 
 
 
