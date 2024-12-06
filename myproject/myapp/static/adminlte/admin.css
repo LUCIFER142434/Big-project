@@ -69,3 +69,13 @@ button {
     transform: scale(0.98);
     /* Уменьшение кнопки при клике */
 }
+
+
+.dis{
+    display: flex;
+    color: #ffffffa9;
+}
+.pos{
+    position: absolute;
+    left: 50px;
+}

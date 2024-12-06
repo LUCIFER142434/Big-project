@@ -8,7 +8,50 @@ from rest_framework.views import APIView
 
 
 def baza_site(request):
-    return render(request,'admin/baza_site.html')
+    header_top = models.HeaderTop.objects.all()
+    header_center = models.HeaderCenter.objects.all()
+    header_end = models.HeaderEnd.objects.all()
+    header_slider = models.HeaderSlider.objects.all()
+    
+    main_one_top = models.MainOneTop.objects.all()
+    main_one_left = models.MainOneLeft.objects.all()
+    main_one_right = models.MainOneRight.objects.all()
+    
+    main_two_left = models.MainTwoLeft.objects.all()
+    main_two_right = models.MainTwoRight.objects.all()
+    
+    main_thee_top = models.MainTheeTop.objects.all()
+    main_thee_content = models.MainTheeContent.objects.all()
+    
+    main_four_top = models.MainFourTop.objects.all()
+    main_four_left = models.MainFourLeft.objects.all()
+    main_four_right = models.MainFourRight.objects.all()
+    
+    footer = models.Footer.objects.all()
+    
+    obj = {
+        'header_top':header_top,
+        'header_center':header_center,
+        'header_end':header_end,
+        'header_slider':header_slider,
+        
+        'main_one_top':main_one_top,
+        'main_one_left':main_one_left,
+        'main_one_right':main_one_right,
+        
+        'main_two_left':main_two_left,
+        'main_two_right':main_two_right,
+        
+        'main_thee_top':main_thee_top,
+        'main_thee_content':main_thee_content,
+        
+        'main_four_top':main_four_top,
+        'main_four_left':main_four_left,
+        'main_four_right':main_four_right,
+        
+        'footer':footer,
+    }
+    return render(request,'admin/baza_site.html',obj)
 
 def admin_header_top(request):
     header_top = models.HeaderTop.objects.all()
