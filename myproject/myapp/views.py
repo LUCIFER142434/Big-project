@@ -1,10 +1,11 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from . import models
-from . import forms
-from . import serializer
+from . import models,serializer,forms
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+
 
 
 def baza_site(request):
@@ -719,40 +720,64 @@ def delete_footer(request,head_id):
 # API Start
 
 # Header API Start
+
 class HeaderTopAPIView(APIView):
+    @swagger_auto_schema(
+        operation_description="Получить список всех объектов HeaderTop",
+        responses={200: serializer.HeaderTopSerializer(many=True)}
+    )
     def get(self, request, head_id=None):
         if head_id:
             head = get_object_or_404(models.HeaderTop, id=head_id)
-            serializers = serializer.HeaderTopSerializer(head)
-            return Response(serializers.data, status=status.HTTP_200_OK)
-        
-        heads = models.HeaderTop.objects.all()
-        serializers = serializer.HeaderTopSerializer(heads, many=True)
-        return Response(serializers.data, status=status.HTTP_200_OK)
+            serializer = serializer.HeaderTopSerializer(head)
+            return Response(serializer.data, status=status.HTTP_200_OK)
 
+        headers = models.HeaderTop.objects.all()
+        serializer = serializer.HeaderTopSerializer(headers, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @swagger_auto_schema(
+        operation_description="Создать новый объект HeaderTop",
+        request_body=serializer.HeaderTopSerializer,
+        responses={201: serializer.HeaderTopSerializer}
+    )
     def post(self, request):
-        serializers = serializer.HeaderTopSerializer(data=request.data)
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data, status=status.HTTP_201_CREATED)
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+        serializer = serializer.HeaderTopSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    @swagger_auto_schema(
+        operation_description="Обновить полностью объект HeaderTop",
+        request_body=serializer.HeaderTopSerializer,
+        responses={200: serializer.HeaderTopSerializer}
+    )
     def put(self, request, head_id):
         head = get_object_or_404(models.HeaderTop, id=head_id)
-        serializers = serializer.HeaderTopSerializer(head, data=request.data)
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data, status=status.HTTP_200_OK)
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+        serializer = serializer.HeaderTopSerializer(head, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    @swagger_auto_schema(
+        operation_description="Частично обновить объект HeaderTop",
+        request_body=serializer.HeaderTopSerializer,
+        responses={200: serializer.HeaderTopSerializer}
+    )
     def patch(self, request, head_id):
         head = get_object_or_404(models.HeaderTop, id=head_id)
-        serializers = serializer.HeaderTopSerializer(head, data=request.data, partial=True)
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data, status=status.HTTP_200_OK)
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+        serializer = serializer.HeaderTopSerializer(head, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    @swagger_auto_schema(
+        operation_description="Удалить объект HeaderTop",
+        responses={204: "Object deleted successfully"}
+    )
     def delete(self, request, head_id):
         head = get_object_or_404(models.HeaderTop, id=head_id)
         head.delete()

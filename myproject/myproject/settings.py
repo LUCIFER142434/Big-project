@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'adminlte3',
     'adminlte3_theme',
+    'drf_yasg', 
 ]
 
 MIDDLEWARE = [
