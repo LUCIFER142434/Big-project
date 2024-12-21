@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import AbstractUser
 # Header start
 class HeaderTop(models.Model):
     text = models.TextField()
@@ -138,3 +138,8 @@ class Footer(models.Model):
 
 
 # Footer End
+
+
+# Login
+class CustomUser(AbstractUser):
+    phone_number = models.CharField(max_length=15, blank=True, null=True)

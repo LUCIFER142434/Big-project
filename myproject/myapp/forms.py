@@ -1,5 +1,7 @@
 from django import forms
 from . import models
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import get_user_model
 
 # Header Start
 class HeaderTopForm(forms.ModelForm):
@@ -95,3 +97,30 @@ class FooterForm(forms.ModelForm):
         fields = ['name','adress']
 
 # Footer End
+
+
+# Login
+
+User = get_user_model()
+
+class CustomUserCreationUserForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ('username','email','password1','password2')
+        
+class CustomAuthenticationForm(AuthenticationForm):
+    class Meta:
+        model = User
+        fields = ('username','password')
+        
+        def clean_password2(self):
+            password1 = self.cleaned_data.get('password1')
+            password2 = self.cleaned_data.get('password2')
+            
+            if password1 and password2 and password1 != password2:
+                raise forms.ValidationError("Пароли не совпадают.")
+            if len(password1) < 6:
+                raise forms.ValidationError("Пароль должен быть длиной не менее 6 символов.")
+            # Добавьте свои проверки, если нужно
+            return password2
+        
