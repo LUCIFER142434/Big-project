@@ -123,6 +123,51 @@ https://templatemo.com/tm-569-edu-meeting
     </div>
   </section>
 
+
+  {% if meeting_details %}
+  {% for i in meeting_details %}
+
+  <section class="meetings-page" id="meetings">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="meeting-single-item">
+                <div class="thumb">
+                  <div class="price">
+                    <span>${{i.pay}}</span>
+                  </div>
+                  <div class="date">
+                    <h6>Nov <span>{{i.numder}}</span></h6>
+                  </div>
+                  <a href="{% url 'meeting_details' %}"><img src="{% static 'assets/images/single-meeting.jpg' %}"
+                      alt=""></a>
+                </div>
+                <div class="down-content">
+                  {{i.text}}
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="main-button-red">
+                <a href="{% url 'meetings' %}">Back To Meetings List</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved.
+        <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
+      </p>
+    </div>
+  </section>
+
+
+  {% endfor %}
+  {% else %}
   <section class="meetings-page" id="meetings">
     <div class="container">
       <div class="row">
@@ -209,7 +254,7 @@ https://templatemo.com/tm-569-edu-meeting
       </p>
     </div>
   </section>
-
+  {% endif %}
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
