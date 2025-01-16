@@ -75,10 +75,8 @@ https://templatemo.com/tm-569-edu-meeting
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="{% url 'index' %}">Home</a></li>
+              <li class="scroll-to-section"><li><a href="{% url 'index' %}">Home</a></li></li>
               <li><a href="{% url 'login' %}">Login</a></li>
-              <li class="scroll-to-section"><a href="{% url 'admin' %}">admin</a></li>
-
               <li class="has-sub">
                 <a href="javascript:void(0)">Pages</a>
                 <ul class="sub-menu">
@@ -105,8 +103,21 @@ https://templatemo.com/tm-569-edu-meeting
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h6>Here are our upcoming meetings</h6>
-          <h2>Upcoming Meetings</h2>
+          <div class="caption">
+            {% if header_end %}
+            {% for i in header_end %}
+            <h6>{{i.text_top}}</h6>
+            <h2>{{i.text_big}}</h2>
+            <p>{{i.text_end}}</p>
+            <div class="main-button-red">
+              <div class="scroll-to-section"><a href="#contact">{{i.but_name}}</a></div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <h6>Here are our upcoming meetings</h6>
+            <h2>Upcoming Meetings</h2>
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>

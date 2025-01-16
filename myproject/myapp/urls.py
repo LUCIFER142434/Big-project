@@ -26,7 +26,6 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('',views.index,name='index'),
-    # path('admin/',views.admin,name='admin'),
     path('meeting_details/',views.meeting_details,name='meeting_details'),
     path('meetings/',views.meetings,name='meetings'),
     path('admin/',views.baza_site,name='admin'),
@@ -38,26 +37,6 @@ urlpatterns = [
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'), 
     
-    
-    path('admin_header_top/',views.admin_header_top,name='admin_header_top'),
-    path('admin_header_center/',views.admin_header_center,name='admin_header_center'),
-    path('admin_header_end/',views.admin_header_end,name='admin_header_end'),
-    path('admin_header_slider/',views.admin_header_slider,name='admin_header_slider'),
-    
-    path('admin_main_one_top/',views.admin_main_one_top,name='admin_main_one_top'),
-    path('admin_main_one_left/',views.admin_main_one_left,name='admin_main_one_left'),
-    path('admin_main_one_right/',views.admin_main_one_right,name='admin_main_one_right'),
-    
-    path('admin_main_two_left/',views.admin_main_two_left,name='admin_main_two_left'),
-    path('admin_main_two_right/',views.admin_main_two_right,name='admin_main_two_right'),
-    
-    path('admin_main_thee_top/',views.admin_main_thee_top,name='admin_main_thee_top'),
-    path('admin_main_thee_content/',views.admin_main_thee_content,name='admin_main_thee_content'),
-    
-    path('admin_main_four_top/',views.admin_main_four_top,name='admin_main_four_top'),
-    path('admin_main_four_left/',views.admin_main_four_left,name='admin_main_four_left'),
-    path('admin_main_four_right/',views.admin_main_four_right,name='admin_main_four_right'),
-    path('admin_footer/',views.admin_footer,name='admin_footer'),
 
     # Header
     # Creat
@@ -136,6 +115,32 @@ urlpatterns = [
     # Delete
     path('delete_footer/<int:head_id>/',views.delete_footer,name='delete_footer'),
     # Footer End
+    
+    # User Start
+    path('creat_user/',views.creat_user,name='creat_user'),
+    # Update
+    path('update_user/<int:head_id>/',views.update_user,name='update_user'),
+    # Delete
+    path('delete_user/<int:head_id>/',views.delete_user,name='delete_user'),
+    # User End
+    
+    # Meeting Details Start
+    path('creat_meeting_details/',views.creat_meeting_details,name='creat_meeting_details'),
+    # Update
+    path('update_meeting_details/<int:head_id>/',views.update_meeting_details,name='update_meeting_details'),
+    # Delete
+    path('delete_meeting_details/<int:head_id>/',views.delete_meeting_details,name='delete_meeting_details'),
+    # Meeting Details End
+    
+    # Meetings
+    path('creat_meetings/',views.creat_meetings,name='creat_meetings'),
+    # Update
+    path('update_meetings/<int:head_id>/',views.update_meetings,name='update_meetings'),
+    # Delete
+    path('delete_meetings/<int:head_id>/',views.delete_meetings,name='delete_meetings'),
+    # Meetings End
+    
+    
     
     
     # API Start

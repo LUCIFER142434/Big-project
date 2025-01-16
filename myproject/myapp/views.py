@@ -28,7 +28,12 @@ def baza_site(request):
     main_four_left = models.MainFourLeft.objects.all()
     main_four_right = models.MainFourRight.objects.all()
     
+    meeting_details = models.Meeting_details.objects.all()
+    meeting = models.Meetings.objects.all()
+    
     footer = models.Footer.objects.all()
+    
+    user = models.CustomUser.objects.all()
     
     obj = {
         'header_top':header_top,
@@ -51,81 +56,13 @@ def baza_site(request):
         'main_four_right':main_four_right,
         
         'footer':footer,
+        
+        'user':user,
+        
+        'meeting_details':meeting_details,
+        'meeting':meeting,
     }
     return render(request,'admin/baza_site.html',obj)
-
-def admin_header_top(request):
-    header_top = models.HeaderTop.objects.all()
-    return render(request,'admin/header/top.html',{'header_top':header_top})
-
-def admin_header_center(request):
-    header_center = models.HeaderCenter.objects.all()
-    return render(request,'admin/header/center.html',{'header_center':header_center})
-
-def admin_header_end(request):
-    header_end = models.HeaderEnd.objects.all()
-    return render(request,'admin/header/end.html',{'header_end':header_end})
-
-def admin_header_slider(request):
-    header_slider = models.HeaderTop.objects.all()
-    return render(request,'admin/header/slider.html',{'header_slider':header_slider})
-
-
-
-def admin_main_one_top(request):
-    main_one_top = models.MainOneTop.objects.all()
-    return render(request,'admin/main_one/top.html',{'main_one_top':main_one_top})
-
-def admin_main_one_left(request):
-    main_one_left = models.MainOneLeft.objects.all()
-    return render(request,'admin/main_one/left.html',{'main_one_left':main_one_left})
-
-def admin_main_one_right(request):
-    main_one_right = models.MainOneRight.objects.all()
-    return render(request,'admin/main_one/right.html',{'main_one_right':main_one_right})
-
-
-
-def admin_main_two_left(request):
-    main_two_left = models.MainTwoLeft.objects.all()
-    return render(request,'admin/main_two/left.html',{'main_two_left':main_two_left})
-
-def admin_main_two_right(request):
-    main_two_right = models.MainTwoRight.objects.all()
-    return render(request,'admin/main_two/right.html',{'main_two_right':main_two_right})
-
-
-
-
-def admin_main_thee_top(request):
-    main_thee_top = models.MainTheeTop.objects.all()
-    return render(request,'admin/main_thee/top.html',{'main_thee_top':main_thee_top})
-
-def admin_main_thee_content(request):
-    main_thee_content = models.MainTheeContent.objects.all()
-    return render(request,'admin/main_thee/content.html',{'main_thee_content':main_thee_content})
-
-
-
-
-def admin_main_four_top(request):
-    main_four_top = models.MainFourTop.objects.all()
-    return render(request,'admin/main_four/top.html',{'main_four_top':main_four_top})
-
-def admin_main_four_left(request):
-    main_four_left = models.MainFourLeft.objects.all()
-    return render(request,'admin/main_four/left.html',{'main_four_left':main_four_left})
-
-def admin_main_four_right(request):
-    main_four_right = models.MainFourRight.objects.all()
-    return render(request,'admin/main_four/right.html',{'main_four_right':main_four_right})
-
-
-def admin_footer(request):
-    footer = models.Footer.objects.all()
-    return render(request,'admin/footer/footer.html',{'footer':footer})
-
-
 
 
 def index(request):
@@ -150,6 +87,8 @@ def index(request):
     
     footer = models.Footer.objects.all()
     
+    user = models.CustomUser.objects.all()
+    
     obj = {
         'header_top':header_top,
         'header_center':header_center,
@@ -171,56 +110,10 @@ def index(request):
         'main_four_right':main_four_right,
         
         'footer':footer,
+        
+        'user':user,
     }
     return render(request,'index.html',obj)
-
-
-def admin(request):
-    header_top = models.HeaderTop.objects.all()
-    header_center = models.HeaderCenter.objects.all()
-    header_end = models.HeaderEnd.objects.all()
-    header_slider = models.HeaderSlider.objects.all()
-    
-    main_one_top = models.MainOneTop.objects.all()
-    main_one_left = models.MainOneLeft.objects.all()
-    main_one_right = models.MainOneRight.objects.all()
-    
-    main_two_left = models.MainTwoLeft.objects.all()
-    main_two_right = models.MainTwoRight.objects.all()
-    
-    main_thee_top = models.MainTheeTop.objects.all()
-    main_thee_content = models.MainTheeContent.objects.all()
-    
-    main_four_top = models.MainFourTop.objects.all()
-    main_four_left = models.MainFourLeft.objects.all()
-    main_four_right = models.MainFourRight.objects.all()
-    
-    footer = models.Footer.objects.all()
-    
-    obj = {
-        'header_top':header_top,
-        'header_center':header_center,
-        'header_end':header_end,
-        'header_slider':header_slider,
-        
-        'main_one_top':main_one_top,
-        'main_one_left':main_one_left,
-        'main_one_right':main_one_right,
-        
-        'main_two_left':main_two_left,
-        'main_two_right':main_two_right,
-        
-        'main_thee_top':main_thee_top,
-        'main_thee_content':main_thee_content,
-        
-        'main_four_top':main_four_top,
-        'main_four_left':main_four_left,
-        'main_four_right':main_four_right,
-        
-        'footer':footer,
-    }
-    return render(request,'admin.html',obj)
-
 
 
 
@@ -229,10 +122,12 @@ def meetings(request):
     header_center = models.HeaderCenter.objects.all()
     header_end = models.HeaderEnd.objects.all()
 
+    meeting = models.Meetings.objects.all()
     obj = {
         'header_top':header_top,
         'header_center':header_center,
         'header_end':header_end,
+        'meeting':meeting,
     }
     return render(request,'meetings.html',obj)
 
@@ -244,10 +139,13 @@ def meeting_details(request):
     header_center = models.HeaderCenter.objects.all()
     header_end = models.HeaderEnd.objects.all()
     
+    meeting_details = models.Meeting_details.objects.all()
+
     obj = {
         'header_top':header_top,
         'header_center':header_center,
         'header_end':header_end,
+        'meeting_details':meeting_details,
     }
     return render(request,'meeting_details.html',obj)
 
@@ -712,6 +610,99 @@ def delete_footer(request,head_id):
 
 # Footer End
 
+# Meeting Details
+
+def creat_meeting_details(request):
+    if request.method == 'POST':
+        form = forms.Meeting_detailsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.Meeting_detailsForm()
+    return render(request,'form.html',{'form':form})
+
+def update_meeting_details(request,head_id):
+    head = get_object_or_404(models.Meeting_details,id=head_id)
+    if request.method == 'POST':
+        form = forms.Meeting_detailsForm(request.POST,instance=head)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.Meeting_detailsForm(instance=head)
+    return render(request,'form.html',{'form':form})
+
+def delete_meeting_details(request,head_id):
+    head = get_object_or_404(models.Meeting_details,id=head_id)
+    if request.method == 'POST':
+        head.delete()
+        return redirect('admin')
+    return render(request,'delete.html',{'head':head})
+
+# Meetings
+
+def creat_meetings(request):
+    if request.method == 'POST':
+        form = forms.MeetingsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MeetingsForm()
+    return render(request,'form.html',{'form':form})
+
+def update_meetings(request,head_id):
+    head = get_object_or_404(models.Meetings,id=head_id)
+    if request.method == 'POST':
+        form = forms.MeetingsForm(request.POST,instance=head)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.MeetingsForm(instance=head)
+    return render(request,'form.html',{'form':form})
+
+def delete_meetings(request,head_id):
+    head = get_object_or_404(models.Meetings,id=head_id)
+    if request.method == 'POST':
+        head.delete()
+        return redirect('admin')
+    return render(request,'delete.html',{'head':head})
+
+
+
+# User Start
+
+def creat_user(request):
+    if request.method == 'POST':
+        form = forms.CustomUserCreationUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.CustomUserCreationUserForm()
+    return render(request,'form.html',{'form':form})
+
+def update_user(request,head_id):
+    head = get_object_or_404(models.CustomUser,id=head_id)
+    if request.method == 'POST':
+        form = forms.CustomUserCreationUserForm(request.POST,instance=head)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')
+    else:
+        form = forms.CustomUserCreationUserForm(instance=head)
+    return render(request,'form.html',{'form':form})
+
+def delete_user(request,head_id):
+    head = get_object_or_404(models.CustomUser,id=head_id)
+    if request.method == 'POST':
+        head.delete()
+        return redirect('admin')
+    return render(request,'delete.html',{'head':head})
+
+# User End
 
 
 

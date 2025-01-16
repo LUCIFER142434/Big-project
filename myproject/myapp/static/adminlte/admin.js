@@ -54,6 +54,23 @@ const footer = document.getElementById('footer')
 const footer_con = document.getElementById('footer_con');
 
 
+
+const user = document.getElementById('user')
+const user_con = document.getElementById('user_con');
+
+
+
+
+
+const meetings = document.getElementById('meetings')
+const meetings_con = document.getElementById('meetings_con');
+
+const meeting_details = document.getElementById('meeting_details')
+const meeting_details_con = document.getElementById('meeting_details_con');
+
+
+
+
 // Показать таблицу
 function hideAllTables() {
     header_top_con.hidden = true;
@@ -76,6 +93,11 @@ function hideAllTables() {
     main_four_right_con.hidden = true;
 
     footer_con.hidden = true;
+
+    user_con.hidden = true;
+
+    meetings_con.hidden = true;
+    meeting_details_con.hidden = true;
 }
 
 header_top.addEventListener('click', () => {
@@ -152,4 +174,24 @@ main_four_right.addEventListener('click', () => {
 footer.addEventListener('click', () => {
     hideAllTables();
     footer_con.hidden = false;
+});
+
+
+
+user.addEventListener('click', () => {
+    hideAllTables();
+    user_con.hidden = false;
+});
+
+
+
+meetings.addEventListener('click', () => {
+    hideAllTables();
+    meetings_con.hidden = false;
+});
+
+
+meeting_details.addEventListener('click', () => {
+    hideAllTables();
+    meeting_details_con.hidden = false;
 });

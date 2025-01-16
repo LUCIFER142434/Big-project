@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+
+# index Start
 # Header start
 class HeaderTop(models.Model):
     text = models.TextField()
@@ -32,8 +34,6 @@ class HeaderSlider(models.Model):
     
     def __str__(self):
         return self.name
-
-# Header End
     
 # Main One start 
 class MainOneTop(models.Model):
@@ -61,7 +61,6 @@ class MainOneRight(models.Model):
     def __str__(self):
         return self.name
     
-# Main One End
 
 
 # Main Two start
@@ -81,7 +80,6 @@ class MainTwoRight(models.Model):
     def __str__(self):
         return self.name
 
-# Main Two End
 
 # Main Thee Start
 
@@ -99,8 +97,6 @@ class MainTheeContent(models.Model):
     
     def __str__(self):
         return self.name
-
-# Main Thee End
 
 # Main Four Start
     
@@ -125,7 +121,6 @@ class MainFourRight(models.Model):
     def __str__(self):
         return self.img
     
-# Main Four End
 # Footer Start
 
 
@@ -136,8 +131,23 @@ class Footer(models.Model):
     def __str__(self):
         return self.name
 
+# index End
 
-# Footer End
+# Meetind Details
+class Meeting_details(models.Model):
+    pay =  models.IntegerField()
+    number = models.IntegerField()
+    img = models.CharField(max_length=20)
+    text = models.CharField(max_length=255)
+    
+
+# Meetind
+class Meetings(models.Model):
+    pay =  models.IntegerField()
+    number = models.IntegerField()
+    img = models.CharField(max_length=20)
+    text = models.CharField(max_length=255)
+
 
 
 # Login

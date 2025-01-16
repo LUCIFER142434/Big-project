@@ -99,6 +99,17 @@ class FooterForm(forms.ModelForm):
 # Footer End
 
 
+# Meetind Details
+class Meeting_detailsForm(forms.ModelForm):
+    class Meta:
+        model = models.Meeting_details
+        fields = ['pay','number','img','text']
+
+# Meetind
+class MeetingsForm(forms.ModelForm):
+    class Meta:
+        model = models.Meetings
+        fields = ['pay','number','img','text']
 # Login
 
 User = get_user_model()
